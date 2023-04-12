@@ -17,7 +17,7 @@ export class AuthManagerService {
 
   logoutUserAndRedirect() {
     localStorage.removeItem('token');
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/login');
   }
 
   getToken() {
