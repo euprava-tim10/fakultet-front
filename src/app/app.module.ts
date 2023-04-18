@@ -34,6 +34,7 @@ import { IsStudent } from './auth/guards/IsStudent';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: IndexComponent, canActivate: [IsLoggedIn] },
       { path: 'login', component: LoginComponent, canActivate: [IsAnonymous] },

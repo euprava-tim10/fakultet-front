@@ -1,1 +1,14 @@
-<p>admin-studenti works!</p>
+<table>
+  <tr>
+    <th>ime</th>
+    <th>prezime</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let student of studenti">
+    <td>{{ student.ime }}</td>
+    <td>{{ student.prezime }}</td>
+    <td>
+        <a [href]="'/student/' + student.id">prikazi</a>
+    </td>
+  </tr>
+</table>
