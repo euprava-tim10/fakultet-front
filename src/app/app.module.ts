@@ -19,6 +19,8 @@ import { AdminStudentiComponent } from './pages/admin-studenti/admin-studenti.co
 import { NoviKonkursComponent } from './pages/novi-konkurs/novi-konkurs.component';
 import { IsAdmin } from './auth/guards/IsAdmin';
 import { IsStudent } from './auth/guards/IsStudent';
+import { StudentInfoComponent } from './pages/student-info/student-info.component';
+import { ZavrsiStudijeComponent } from './pages/zavrsi-studije/zavrsi-studije.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { IsStudent } from './auth/guards/IsStudent';
     LoginComponent,
     AdminKonkursiComponent,
     AdminStudentiComponent,
-    NoviKonkursComponent
+    NoviKonkursComponent,
+    StudentInfoComponent,
+    ZavrsiStudijeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,8 @@ import { IsStudent } from './auth/guards/IsStudent';
       { path: 'redirect', component: RedirectComponent, canActivate: [IsAnonymous] },
       { path: 'admin/konkursi', component: AdminKonkursiComponent, canActivate: [IsAdmin] },
       { path: 'admin/studenti', component: AdminStudentiComponent, canActivate: [IsAdmin] },
+      { path: 'studenti/:id', component: StudentInfoComponent, canActivate: [IsLoggedIn] },
+      { path: 'studenti/:studentId/statusiStudija/:statusStudijaId/zavrsi', component: ZavrsiStudijeComponent, canActivate: [IsAdmin] },
     ], {scrollPositionRestoration: 'enabled'}),
   ],
   providers: [
