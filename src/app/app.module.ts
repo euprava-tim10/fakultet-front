@@ -14,6 +14,11 @@ import { AdminPanelComponent } from './pages/index/components/admin-panel/admin-
 import { StudentPanelComponent } from './pages/index/components/student-panel/student-panel.component';
 import { RedirectComponent } from './pages/redirect/redirect.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AdminKonkursiComponent } from './pages/admin-konkursi/admin-konkursi.component';
+import { AdminStudentiComponent } from './pages/admin-studenti/admin-studenti.component';
+import { NoviKonkursComponent } from './pages/novi-konkurs/novi-konkurs.component';
+import { IsAdmin } from './auth/guards/IsAdmin';
+import { IsStudent } from './auth/guards/IsStudent';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,10 @@ import { LoginComponent } from './pages/login/login.component';
     IndexComponent,
     AdminPanelComponent,
     StudentPanelComponent,
-    LoginComponent
+    LoginComponent,
+    AdminKonkursiComponent,
+    AdminStudentiComponent,
+    NoviKonkursComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +38,8 @@ import { LoginComponent } from './pages/login/login.component';
       { path: '', component: IndexComponent, canActivate: [IsLoggedIn] },
       { path: 'login', component: LoginComponent, canActivate: [IsAnonymous] },
       { path: 'redirect', component: RedirectComponent, canActivate: [IsAnonymous] },
+      { path: 'admin/konkursi', component: AdminKonkursiComponent, canActivate: [IsAdmin] },
+      { path: 'admin/studenti', component: AdminStudentiComponent, canActivate: [IsAdmin] },
     ], {scrollPositionRestoration: 'enabled'}),
   ],
   providers: [
@@ -39,7 +49,9 @@ import { LoginComponent } from './pages/login/login.component';
       multi: true
     },
     IsAnonymous,
-    IsLoggedIn
+    IsLoggedIn,
+    IsAdmin,
+    IsStudent
   ],
   bootstrap: [AppComponent]
 })

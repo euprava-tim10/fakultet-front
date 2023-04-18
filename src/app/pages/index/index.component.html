@@ -2,4 +2,8 @@
     logout
 </button>
 
-<p>index works!</p>
+<app-admin-panel *ngIf="isAdmin">
+</app-admin-panel>
+
+<app-student-panel *ngIf="isStudent">
+</app-student-panel>
