@@ -21,6 +21,9 @@ import { IsAdmin } from './auth/guards/IsAdmin';
 import { IsStudent } from './auth/guards/IsStudent';
 import { StudentInfoComponent } from './pages/student-info/student-info.component';
 import { ZavrsiStudijeComponent } from './pages/zavrsi-studije/zavrsi-studije.component';
+import { StudentKonkursiComponent } from './pages/student-konkursi/student-konkursi.component';
+import { PrijavaKonkursComponent } from './pages/prijava-konkurs/prijava-konkurs.component';
+import { RezultatiKonkursComponent } from './pages/rezultati-konkurs/rezultati-konkurs.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { ZavrsiStudijeComponent } from './pages/zavrsi-studije/zavrsi-studije.co
     AdminStudentiComponent,
     NoviKonkursComponent,
     StudentInfoComponent,
-    ZavrsiStudijeComponent
+    ZavrsiStudijeComponent,
+    StudentKonkursiComponent,
+    PrijavaKonkursComponent,
+    RezultatiKonkursComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +54,9 @@ import { ZavrsiStudijeComponent } from './pages/zavrsi-studije/zavrsi-studije.co
       { path: 'admin/novi_konkurs', component: NoviKonkursComponent, canActivate: [IsAdmin] },
       { path: 'studenti/:id', component: StudentInfoComponent, canActivate: [IsLoggedIn] },
       { path: 'studenti/:studentId/statusiStudija/:statusStudijaId/zavrsi', component: ZavrsiStudijeComponent, canActivate: [IsAdmin] },
+      { path: 'student/konkursi', component: StudentKonkursiComponent, canActivate: [IsStudent] },
+      { path: 'student/konkursi/:id/prijava', component: PrijavaKonkursComponent, canActivate: [IsStudent] },
+      { path: 'student/rezultati_konkurs', component: RezultatiKonkursComponent, canActivate: [IsStudent] },
     ], {scrollPositionRestoration: 'enabled'}),
   ],
   providers: [
