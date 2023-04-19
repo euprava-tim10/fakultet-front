@@ -1,1 +1,34 @@
-<p>admin-konkursi works!</p>
+<a routerLink="/admin/novi_konkurs">
+    novi konkurs
+</a>
+
+<table>
+    <tr>
+      <th>fakultet</th>
+      <th>datum raspisivanja</th>
+      <th>datum okoncavanja</th>
+      <th>status</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let konkurs of konkursi">
+      <td>{{ konkurs.fakultet?.naziv }}</td>
+      <td>{{ konkurs.datumRaspisivanja }}</td>
+      <td>{{ konkurs.datumOkoncavanja }}</td>
+      <td>
+        <span *ngIf="konkurs.statusKonkursa == 'AKTIVAN'">
+            aktivan
+        </span>
+
+        <span *ngIf="konkurs.statusKonkursa == 'ZATVOREN'">
+            zatvoren
+        </span>
+      </td>
+      <td>
+        <button *ngIf="konkurs.statusKonkursa == 'AKTIVAN'"
+                (click)="onOkoncajKonkurs(konkurs.id)">
+          okoncaj
+        </button>
+      </td>
+    </tr>
+  </table>

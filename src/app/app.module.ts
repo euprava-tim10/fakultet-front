@@ -45,6 +45,7 @@ import { ZavrsiStudijeComponent } from './pages/zavrsi-studije/zavrsi-studije.co
       { path: 'redirect', component: RedirectComponent, canActivate: [IsAnonymous] },
       { path: 'admin/konkursi', component: AdminKonkursiComponent, canActivate: [IsAdmin] },
       { path: 'admin/studenti', component: AdminStudentiComponent, canActivate: [IsAdmin] },
+      { path: 'admin/novi_konkurs', component: NoviKonkursComponent, canActivate: [IsAdmin] },
       { path: 'studenti/:id', component: StudentInfoComponent, canActivate: [IsLoggedIn] },
       { path: 'studenti/:studentId/statusiStudija/:statusStudijaId/zavrsi', component: ZavrsiStudijeComponent, canActivate: [IsAdmin] },
     ], {scrollPositionRestoration: 'enabled'}),
