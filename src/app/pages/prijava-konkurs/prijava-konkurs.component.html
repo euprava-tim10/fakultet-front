@@ -1,1 +1,12 @@
-<p>prijava-konkurs works!</p>
+<p>prva zelja</p>
+
+<select (input)="onSetSmer($event)">
+    <option *ngFor="let smer of smerovi"
+            [value]="smer.id">
+        {{ smer.naziv + ' (' + smer.nivoStudija + ')'}}
+    </option>
+</select>
+
+<button (click)="onPrijaviSe()">
+    prijavi se
+</button>
