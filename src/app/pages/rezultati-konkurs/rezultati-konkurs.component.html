@@ -1,1 +1,34 @@
-<p>rezultati-konkurs works!</p>
+<table>
+    <tr>
+      <th>fakultet</th>
+      <th>smer</th>
+      <th>nivo studija</th>
+      <th>status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let prijava of prijave; let i = index">
+      <td>{{ prijava.prvaZelja?.fakultet?.naziv }}</td>
+      <td>{{ prijava.prvaZelja?.naziv }}</td>
+      <td>{{ prijava.prvaZelja?.nivoStudija }}</td>
+      <td>{{ prijava.statusPrijave }}</td>
+      <td>
+        <button *ngIf="prijava.statusPrijave == 'PRIMLJEN_UPIS'"
+                (click)="onPrihvatiPrijavu(prijava)">
+            prihvati
+        </button>
+      </td>
+      <td>
+        <button *ngIf="prijava.statusPrijave == 'PRIMLJEN_UPIS'"
+                (click)="onOdbijPrijavu(prijava)">
+            odbij
+        </button>
+      </td>
+      <td>
+        <a [routerLink]="['/konkursi', prijava.konkurs?.id]">
+            detalji
+        </a>
+      </td>
+    </tr>
+</table>
