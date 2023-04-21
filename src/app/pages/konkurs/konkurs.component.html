@@ -1,0 +1,25 @@
+<div>
+    <p>{{ 'fakultet: ' + konkurs?.fakultet?.naziv }}</p>
+    <p>{{ 'datum raspisivanja: ' + konkurs?.datumRaspisivanja }}</p>
+    <p>{{ 'datum okoncavanja: ' + konkurs?.datumOkoncavanja }}</p>
+    <p>{{ 'status: ' + konkurs?.statusKonkursa }}</p>
+</div>
+
+<table>
+    <tr>
+      <th>smer</th>
+      <th>nivo studija</th>
+      <th>kvota</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let kvota of konkurs?.kvote">
+      <td>{{ kvota.smer?.naziv }}</td>
+      <td>{{ kvota.smer?.nivoStudija }}</td>
+      <td>{{ kvota.kvota }}</td>
+      <td>
+        <a [routerLink]="['/konkursi', konkurs?.id, 'smerovi', kvota.smer?.id, 'rangiranje']">
+          detalji
+        </a>
+      </td>
+    </tr>
+  </table>

@@ -10,25 +10,30 @@
       <th>status</th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
     <tr *ngFor="let konkurs of konkursi">
       <td>{{ konkurs.fakultet?.naziv }}</td>
       <td>{{ konkurs.datumRaspisivanja }}</td>
       <td>{{ konkurs.datumOkoncavanja }}</td>
       <td>
-        <span *ngIf="konkurs.statusKonkursa == 'AKTIVAN'">
-            aktivan
-        </span>
-
-        <span *ngIf="konkurs.statusKonkursa == 'ZATVOREN'">
-            zatvoren
-        </span>
+        {{ konkurs.statusKonkursa }}
       </td>
       <td>
         <button *ngIf="konkurs.statusKonkursa == 'AKTIVAN'"
-                (click)="onOkoncajKonkurs(konkurs.id)">
-          okoncaj
+                (click)="onOkoncajPrijave(konkurs)">
+          okoncaj prijave
         </button>
+
+        <button *ngIf="konkurs.statusKonkursa == 'ZATVORENE_PRIJAVE'"
+                (click)="onOkoncajKonkurs(konkurs)">
+          okoncaj konkurs
+        </button>
+      </td>
+      <td>
+        <a [routerLink]="['/konkursi', konkurs.id]">
+          detalji
+        </a>
       </td>
     </tr>
   </table>

@@ -24,6 +24,8 @@ import { ZavrsiStudijeComponent } from './pages/zavrsi-studije/zavrsi-studije.co
 import { StudentKonkursiComponent } from './pages/student-konkursi/student-konkursi.component';
 import { PrijavaKonkursComponent } from './pages/prijava-konkurs/prijava-konkurs.component';
 import { RezultatiKonkursComponent } from './pages/rezultati-konkurs/rezultati-konkurs.component';
+import { KonkursComponent } from './pages/konkurs/konkurs.component';
+import { KonkursRangiranjeComponent } from './pages/konkurs-rangiranje/konkurs-rangiranje.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { RezultatiKonkursComponent } from './pages/rezultati-konkurs/rezultati-k
     ZavrsiStudijeComponent,
     StudentKonkursiComponent,
     PrijavaKonkursComponent,
-    RezultatiKonkursComponent
+    RezultatiKonkursComponent,
+    KonkursComponent,
+    KonkursRangiranjeComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,8 @@ import { RezultatiKonkursComponent } from './pages/rezultati-konkurs/rezultati-k
       { path: 'student/konkursi', component: StudentKonkursiComponent, canActivate: [IsStudent] },
       { path: 'student/konkursi/:id/prijava', component: PrijavaKonkursComponent, canActivate: [IsStudent] },
       { path: 'student/rezultati_konkurs', component: RezultatiKonkursComponent, canActivate: [IsStudent] },
+      { path: 'konkursi/:id', component: KonkursComponent, canActivate: [IsLoggedIn] },
+      { path: 'konkursi/:konkursId/smerovi/:smerId/rangiranje', component: KonkursRangiranjeComponent, canActivate: [IsLoggedIn] },
     ], {scrollPositionRestoration: 'enabled'}),
   ],
   providers: [

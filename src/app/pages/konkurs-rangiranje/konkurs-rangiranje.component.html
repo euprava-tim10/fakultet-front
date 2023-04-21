@@ -1,0 +1,16 @@
+<table>
+    <tr>
+      <th>broj</th>
+      <th>ime</th>
+      <th>prezime</th>
+      <th>prosek</th>
+      <th>status</th>
+    </tr>
+    <tr *ngFor="let prijava of prijave; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ prijava.student?.ime }}</td>
+      <td>{{ prijava.student?.prezime }}</td>
+      <td>{{ prijava.prosek }}</td>
+      <td>{{ prijava.statusPrijave }}</td>
+    </tr>
+</table>
