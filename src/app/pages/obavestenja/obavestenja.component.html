@@ -1,0 +1,7 @@
+<ng-container *ngFor="let obavestenje of obavestenja">
+    <p>{{ obavestenje.datumKreiranja }}</p>
+    <p>{{ obavestenje.tekst }}</p>
+    <a [href]="obavestenje.link">prikazi</a>
+    
+    <hr>
+</ng-container>

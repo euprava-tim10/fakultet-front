@@ -5,3 +5,7 @@
 <a routerLink="/student/rezultati_konkurs">
     rezultati konkursa
 </a>
+
+<a routerLink="/obavestenja">
+    obavestenja {{ brojNeprocitanihObavestenja == 0 ? '' : '(' + brojNeprocitanihObavestenja + ')' }}
+</a>

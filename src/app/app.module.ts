@@ -26,6 +26,7 @@ import { PrijavaKonkursComponent } from './pages/prijava-konkurs/prijava-konkurs
 import { RezultatiKonkursComponent } from './pages/rezultati-konkurs/rezultati-konkurs.component';
 import { KonkursComponent } from './pages/konkurs/konkurs.component';
 import { KonkursRangiranjeComponent } from './pages/konkurs-rangiranje/konkurs-rangiranje.component';
+import { ObavestenjaComponent } from './pages/obavestenja/obavestenja.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { KonkursRangiranjeComponent } from './pages/konkurs-rangiranje/konkurs-r
     PrijavaKonkursComponent,
     RezultatiKonkursComponent,
     KonkursComponent,
-    KonkursRangiranjeComponent
+    KonkursRangiranjeComponent,
+    ObavestenjaComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,7 @@ import { KonkursRangiranjeComponent } from './pages/konkurs-rangiranje/konkurs-r
       { path: 'student/rezultati_konkurs', component: RezultatiKonkursComponent, canActivate: [IsStudent] },
       { path: 'konkursi/:id', component: KonkursComponent, canActivate: [IsLoggedIn] },
       { path: 'konkursi/:konkursId/smerovi/:smerId/rangiranje', component: KonkursRangiranjeComponent, canActivate: [IsLoggedIn] },
+      { path: 'obavestenja', component: ObavestenjaComponent, canActivate: [IsStudent] },
     ], {scrollPositionRestoration: 'enabled'}),
   ],
   providers: [
