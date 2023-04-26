@@ -2,38 +2,42 @@
     novi konkurs
 </a>
 
-<table>
-    <tr>
-      <th>fakultet</th>
-      <th>datum raspisivanja</th>
-      <th>datum okoncavanja</th>
-      <th>status</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-    <tr *ngFor="let konkurs of konkursi">
-      <td>{{ konkurs.fakultet?.naziv }}</td>
-      <td>{{ konkurs.datumRaspisivanja }}</td>
-      <td>{{ konkurs.datumOkoncavanja }}</td>
-      <td>
-        {{ konkurs.statusKonkursa }}
-      </td>
-      <td>
-        <button *ngIf="konkurs.statusKonkursa == 'AKTIVAN'"
-                (click)="onOkoncajPrijave(konkurs)">
-          okoncaj prijave
-        </button>
+<table class="table">
+    <thead>
+      <tr>
+        <th>fakultet</th>
+        <th>datum raspisivanja</th>
+        <th>datum okoncavanja</th>
+        <th>status</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let konkurs of konkursi">
+        <td>{{ konkurs.fakultet?.naziv }}</td>
+        <td>{{ konkurs.datumRaspisivanja }}</td>
+        <td>{{ konkurs.datumOkoncavanja }}</td>
+        <td>
+          {{ konkurs.statusKonkursa }}
+        </td>
+        <td>
+          <button *ngIf="konkurs.statusKonkursa == 'AKTIVAN'"
+                  (click)="onOkoncajPrijave(konkurs)">
+            okoncaj prijave
+          </button>
 
-        <button *ngIf="konkurs.statusKonkursa == 'ZATVORENE_PRIJAVE'"
-                (click)="onOkoncajKonkurs(konkurs)">
-          okoncaj konkurs
-        </button>
-      </td>
-      <td>
-        <a [routerLink]="['/konkursi', konkurs.id]">
-          detalji
-        </a>
-      </td>
-    </tr>
+          <button *ngIf="konkurs.statusKonkursa == 'ZATVORENE_PRIJAVE'"
+                  (click)="onOkoncajKonkurs(konkurs)">
+            okoncaj konkurs
+          </button>
+        </td>
+        <td>
+          <a [routerLink]="['/konkursi', konkurs.id]">
+            detalji
+          </a>
+        </td>
+      </tr>
+    </tbody>
   </table>

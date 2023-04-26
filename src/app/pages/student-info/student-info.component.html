@@ -1,25 +1,29 @@
 <p>{{ student?.ime + ' ' + student?.prezime }}</p>
 
-<table>
-  <tr>
-    <th>fakultet</th>
-    <th>smer</th>
-    <th>datum upisa</th>
-    <th>datum zavrsetka</th>
-    <th>prosek</th>
-    <th></th>
-  </tr>
-  <tr *ngFor="let status of student?.statusStudija">
-    <td>{{ status.smer?.fakultet?.naziv }}</td>
-    <td>{{ status.smer?.naziv }}</td>
-    <td>{{ status.datumUpisa }}</td>
-    <td>{{ status.datumZavrsetka }}</td>
-    <td>{{ status.prosek }}</td>
-    <td>
-          <a [href]="'/studenti/' + student?.id + '/statusiStudija/' + status.id + '/zavrsi'"
-             *ngIf="status.prosek == 0">
-              zavrsi
-          </a>
-    </td>
-  </tr>
+<table class="table">
+  <thead>
+    <tr>
+      <th>fakultet</th>
+      <th>smer</th>
+      <th>datum upisa</th>
+      <th>datum zavrsetka</th>
+      <th>prosek</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let status of student?.statusStudija">
+      <td>{{ status.smer?.fakultet?.naziv }}</td>
+      <td>{{ status.smer?.naziv }}</td>
+      <td>{{ status.datumUpisa }}</td>
+      <td>{{ status.datumZavrsetka }}</td>
+      <td>{{ status.prosek }}</td>
+      <td>
+            <a [href]="'/studenti/' + student?.id + '/statusiStudija/' + status.id + '/zavrsi'"
+              *ngIf="status.prosek == 0">
+                zavrsi
+            </a>
+      </td>
+    </tr>
+  </tbody>
 </table>

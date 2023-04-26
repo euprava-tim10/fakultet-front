@@ -1,19 +1,23 @@
-<table>
-    <tr>
-        <th>smer</th>
-        <th>nivo studija</th>
-        <th>kvota</th>
-    </tr>
-    <tr *ngFor="let kvota of konkurs.kvote">
-        <td>{{ kvota.smer?.naziv }}</td>
-        <td>{{ kvota.smer?.nivoStudija }}</td>
-        <td>
-            <input type="number"
-                   min="0"
-                   [value]="kvota.kvota"
-                   (input)="onInputKvota(kvota, $event)">
-        </td>
-    </tr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>smer</th>
+            <th>nivo studija</th>
+            <th>kvota</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let kvota of konkurs.kvote">
+            <td>{{ kvota.smer?.naziv }}</td>
+            <td>{{ kvota.smer?.nivoStudija }}</td>
+            <td>
+                <input type="number"
+                    min="0"
+                    [value]="kvota.kvota"
+                    (input)="onInputKvota(kvota, $event)">
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 <button (click)="onRaspisiKonkurs()">

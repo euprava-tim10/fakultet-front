@@ -1,9 +1,12 @@
-<table>
+<table class="table">
+  <thead>
     <tr>
       <th>fakultet</th>
       <th>datum raspisivanja</th>
       <th></th>
     </tr>
+  </thead>
+  <tbody>
     <tr *ngFor="let konkurs of konkursi">
       <td>{{ konkurs.fakultet?.naziv }}</td>
       <td>{{ konkurs.datumRaspisivanja }}</td>
@@ -13,4 +16,5 @@
         </a>
       </td>
     </tr>
+  </tbody>
 </table>

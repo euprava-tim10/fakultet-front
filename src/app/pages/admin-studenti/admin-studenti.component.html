@@ -1,14 +1,18 @@
-<table>
-  <tr>
-    <th>ime</th>
-    <th>prezime</th>
-    <th></th>
-  </tr>
-  <tr *ngFor="let student of studenti">
-    <td>{{ student.ime }}</td>
-    <td>{{ student.prezime }}</td>
-    <td>
-        <a [href]="'/studenti/' + student.id">prikazi</a>
-    </td>
-  </tr>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ime</th>
+      <th>prezime</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studenti">
+      <td>{{ student.ime }}</td>
+      <td>{{ student.prezime }}</td>
+      <td>
+          <a [href]="'/studenti/' + student.id">prikazi</a>
+      </td>
+    </tr>
+  </tbody>
 </table>
