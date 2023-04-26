@@ -1,1 +1,34 @@
-<router-outlet></router-outlet>
+<div class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" routerLink="/">Fakultet</a>
+        
+        <div class="navbar-nav">
+            <a *ngIf="!isLoggedIn"
+                class="nav-item nav-link active"
+                href="http://localhost:9090/authorize?redirect_uri=localhost%3A4200%2Fredirect&service=fakultet">
+                Prijavi se
+            </a>
+
+            <span class="nav-item nav-link active" *ngIf="isLoggedIn">
+                <span *ngIf="isAdmin">
+                    Prijavljeni ste kao admin
+                </span>
+
+                <span *ngIf="isStudent">
+                    Prijavljeni ste kao student
+                </span>
+
+                (<a (click)="handleLogout()">
+                    Odjavi se
+                </a>)
+            </span>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 4.5rem;">
+        <div id="main-part" class="row justify-content-center">
+            <router-outlet>
+            </router-outlet>
+        </div>
+    </div>
+</div>

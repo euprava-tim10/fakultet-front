@@ -19,8 +19,4 @@ export class IndexComponent {
     this.isAdmin = this.authManagerService.isAdmin();
     this.isStudent = this.authManagerService.isStudent();
   }
-
-  handleLogout() {
-    this.authManagerService.logoutUserAndRedirect();
-  }
 }
