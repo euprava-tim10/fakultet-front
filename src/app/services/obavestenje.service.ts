@@ -7,7 +7,7 @@ import { Obavestenje } from '../model/Obavestenje';
 })
 export class ObavestenjeService {
 
-  private server = 'http://localhost:8080';
+  private server = 'http://localhost:8001';
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
   private options = {headers: this.headers};
 
