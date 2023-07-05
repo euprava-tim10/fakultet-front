@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/model/Student';
+import { StatusStudija } from 'src/app/model/StatusStudija';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class StudentInfoComponent {
   studentId = 0;
 
   student: Student | undefined;
+  statusiStudija: StatusStudija[] = [];
 
   constructor(
     private studentService: StudentService,
@@ -24,6 +26,7 @@ export class StudentInfoComponent {
       this.studentId = parseInt(params['id']);
 
       this.studentService.getStudent(this.studentId).subscribe(s => this.student = s);
+      this.studentService.getStudentStatusiStudija(this.studentId).subscribe(s => this.statusiStudija = s);
     });
   }
 }
